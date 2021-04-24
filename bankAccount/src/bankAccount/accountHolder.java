@@ -8,17 +8,24 @@ public class accountHolder {
 	private String ssn;
 	private double checkingAccountOpeningBalance;
 	private double savingsAccountOpeningBalance;
+	private double CheckingAccount;
+	private double SavingsAccount;
+	private CheckingAccount checking;
+	private SavingsAccount Saving;
+	
 	
 	
 	public accountHolder (String FirstName, String MiddleName, String LastName, String ssn,double checkingAccountOpeningBalance,
-			double savingsAccountOpeningBalance) {
+			double savingsAccountOpeningBalance, CheckingAccount checking,SavingsAccount Saving) {
 		System.out.println("Account constructor with parameters called");
 		this.FirstName=FirstName;
 		this.MiddleName=MiddleName;
 		this.LastName = ssn;
-		this.checkingAccountOpeningBalance = checkingAccountOpeningBalance;
-		this.savingsAccountOpeningBalance = savingsAccountOpeningBalance;
+		this.checking = new CheckingAccount(checkingAccountOpeningBalance);
+		this.Saving = new SavingsAccount (savingsAccountOpeningBalance);
+		
 	}
+	
 	
 	public void depositCheckingAccount(double depositAmount) {
 		this.checkingAccountOpeningBalance += depositAmount;
@@ -80,5 +87,7 @@ public class accountHolder {
 	public void setSavingsAccountOpeningBalance(double savingsAccountOpeningBalance) {
 		this.savingsAccountOpeningBalance = savingsAccountOpeningBalance;
 	}
+	
+	
 
 }
